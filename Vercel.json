@@ -9,7 +9,7 @@
   "routes": [
     { "src": "^/images/(.*)$", "dest": "/images/$1" },
     { "src": "^/Video/(.*)$", "dest": "/Video/$1" },
-    { "src": "^/$", "dest": "/TerraShield.html" },
-    { "src": "^/TerraShield.html$", "dest": "/TerraShield.html" },
+    { "src": "^/$", "dest": "/terrashield.html" },
+    { "src": "^/terrashield.html$", "dest": "/terrashield.html" },
   ]
 }
