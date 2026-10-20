@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "*.css", "use": "@vercel/static" },
+    { "src": "images/**", "use": "@vercel/static" },
+    { "src": "Video/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "^/images/(.*)$", "dest": "/images/$1" },
+    { "src": "^/Video/(.*)$", "dest": "/Video/$1" },
+    { "src": "^/$", "dest": "/TerraShield.html" },
+    { "src": "^/TerraShield.html$", "dest": "/TerraShield.html" },
+  ]
+}
