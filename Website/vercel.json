@@ -3,12 +3,10 @@
   "builds": [
     { "src": "*.html", "use": "@vercel/static" },
     { "src": "*.css", "use": "@vercel/static" },
-    { "src": "images/**", "use": "@vercel/static" },
-    { "src": "Video/**", "use": "@vercel/static" }
+    { "src": "images/**", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "^/images/(.*)$", "dest": "/images/$1" },
-    { "src": "^/Video/(.*)$", "dest": "/Video/$1" },
     { "src": "^/$", "dest": "/terrashield.html" },
     { "src": "^/terrashield.html$", "dest": "/terrashield.html" }
   ]
