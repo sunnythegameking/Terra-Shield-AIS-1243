@@ -1,0 +1,339 @@
+/* --- Global Reset & Variables --- */
+:root {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --card-hover-bg: #334155;
+  --primary-accent: #ea1161;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  --radius: 12px;
+  --transition: all 0.25s ease-in-out;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  background: #ffffff;
+  color: #B00A0A;
+  line-height: 1.6;
+  padding: 2rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- Typography & Headers --- */
+h1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  text-align: center;
+  color: #B00A0A;
+  margin-bottom: 1rem;
+  letter-spacing: -0.025em;
+}
+
+h1:not(:first-of-type) {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+/* --- Logo Styling --- */
+body > img {
+  display: block;
+  max-width: 140px;
+  height: auto;
+  margin: 0 auto 2.5rem auto;
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.2));
+}
+
+/* --- Grid & Column Layout (Updated) --- */
+.grid, 
+.maincontainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Expands columns larger */
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 2rem auto 0 auto; /* Centers the whole column set */
+}
+
+.layout {
+  background-color: #f8fafc;
+  border: 10px solid #ea1161;
+  border-radius: 15px;
+  padding: 35px 30px; /* Increased padding for larger cards */
+  text-align: center; /* Centers text inside the columns */
+  justify-content: center;
+  width: 100%;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.layout h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #B00A0A;
+}
+
+.layout p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.grow1 { flex-grow: 1; }
+
+/* --- Scam Cards --- */
+.scam-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.scam-card:hover {
+  transform: translateY(-4px);
+  background-color: var(--card-hover-bg);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-accent);
+}
+
+/* Card Images */
+.scam-card .media {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Card Links */
+.scam-card a {
+  padding: 1.25rem 1rem;
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.scam-card a:hover {
+  color: var(--primary-accent);
+}
+
+/* Card Icon Positioning */
+.scam-card .nuxt-icon {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1rem;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.scam-card .nuxt-icon svg {
+  fill: var(--text-muted);
+  transition: var(--transition);
+}
+
+.scam-card:hover .nuxt-icon svg {
+  fill: var(--primary-accent);
+  transform: translateX(3px);
+}
+
+/* ====================
+   Navigation Bar
+==================== */
+.navbar {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: space-between;
+  padding: 30px 50px;
+  width: 100%;
+  border-radius: 20px;
+  z-index: 1000;
+  height: auto;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  font-size: 24px;
+}
+
+nav a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #444;
+  text-decoration: underline;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: auto;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #deb1b1;
+  border-radius: 15px;
+  border: 5px #ea1161;
+}
+
+.nav-left {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  font-size: 1.75wh;
+  color: #B00A0A;
+}
+
+.nav-logo {
+  margin-right: auto;   
+}
+
+.top_banner_pic {
+  height: 90px;
+  width: 90px;
+  padding: 7px;
+}
+/* CSS Modal Popup Styles */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #1e1e24; /* Adjust background color if needed to match styles.css */
+    color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 750px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #fff;
+}
+
+/* Make cards clickable */
+.scam-card {
+  cursor: pointer;
+}
+
+.modal-content a {
+  color: #4da6ff;
+  text-decoration: underline;
+}
+
+.modal-content a:hover {
+  color: #80c1ff;
+}.profile-pic-container {
+width: 150px;
+height: 150px;
+overflow: hidden;
+border-radius: 50%;
+
+/* Centering line: */
+margin: 0 auto; 
+}
+
+.profile-pic-container img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+display: block;
+}
+
+/* Container to make the initial crop a square */
+.profile-pic-container {
+width: 150px;  /* Set your desired diameter here */
+height: 150px; /* Must match the width */
+overflow: hidden; /* Hide anything outside the circle */
+border-radius: 50%; /* This creates the circle mask */
+
+/* Optional: Adds a subtle border or shadow */
+border: 3px solid #fff;
+box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Ensure the image fills the square container */
+.profile-pic-container img {
+width: 100%;
+height: 100%;
+object-fit: cover; /* Crucial: maintains aspect ratio and fills the space */
+display: block; /* Removes bottom alignment gap */
+
+}
