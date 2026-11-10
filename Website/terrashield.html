@@ -5,30 +5,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TerraShield</title>
     <link rel="icon" type="image/png" href="images/Terra Shield.png">
+    
+    <!-- External & Custom CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!--Taskbar -->
-    <div class="navbar">
-        <nav class="nav-container">
-            <img class="top_banner_pic" src="images/Terra Shield.png" alt="TerraShield logo">
-            <div class="nav-links">
-            <a style="color: #b00a0a;" href=""  rel="noopener noreferrer">Climate Change</a>
+
+    <div class="container">
+        <!-- Main Header & Motto -->
+        <h1 style="color: #F1620E;">Welcome to TerraShield</h1>
+        <h2 style="color: #F1620E;">Our Motto:</h2>
+        <p>Make the world a more sustainable and easier place using technology</p>
+        
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid" style="color: black;">
+            <!-- Air Quality Box -->
+            <div class="card">
+                <div class="header-row">
+                    <h2 class="title">Air Quality (AQI)</h2>
+                    <span class="status-badge-good">Good</span>
+                </div>
+                <div class="value">100/100</div>
             </div>
-            <div class="nav-links">
-            <a style="color: #b00a0a; padding-left: 10px;" href="" target="_blank" rel="noopener noreferrer">Enviromental Activitys<br>around you</a>
+
+            <!-- Tree Cover Box -->
+            <div class="card">
+                <div class="header-row">
+                    <h2 class="title">Tree Cover</h2>
+                    <span class="status-badge-bad">Bad</span>
+                </div>
+                <div class="value">100/100</div>
             </div>
-        </nav>
+
+            <!-- Heat Index Box -->
+            <div class="card">
+                <div class="header-row">
+                    <h2 class="title">Heat Index</h2>
+                    <span class="status-badge-bad">Bad</span>
+                </div>
+                <div class="value">100/100</div>
+            </div>
+
+            <!-- Local Water Quality Box -->
+            <div class="card">
+                <div class="header-row">
+                    <h2 class="title">Local Water Quality</h2>
+                    <span class="status-badge-good">Good</span>
+                </div>
+                <div class="value">50/100</div>
+            </div>
+        </div>
+
+        <!-- Global Climate Map Section -->
+        <section class="map-section">
+            <h2 class="map-header">Global Climate Tracking Map</h2>
+            <div id="climate-map"></div>
+        </section>
+
+        <!-- Community Projects Section -->
+        <section class="projects-wrapper">
+            <div class="projects-header-card">
+                <h2>Community Projects</h2>
+                <p>Join Local community projects around you</p>
+                
+                <div class="filter-pills">
+                    <button class="pill active">All Projects</button>
+                    <button class="pill">⚡ Energy</button>
+                    <button class="pill">💧 Water</button>
+                    <button class="pill">🌳 Trees</button>
+                </div>
+            </div>
+
+            <!-- Project Item 1 -->
+            <div class="project-card">
+                <div class="project-image-placeholder"></div>
+                <div class="project-details">
+                    <div class="project-top-info">
+                        <div>
+                            <p class="project-type">Type of Project</p>
+                            <h3 class="project-title">Name of community project</h3>
+                        </div>
+                        <div class="location-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            Miles away
+                        </div>
+                    </div>
+                    
+                    <div class="progress-container">
+                        <div class="progress-labels">
+                            <span>Goal Progress</span>
+                            <span># / ##</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width: 45%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Item 2 -->
+            <div class="project-card">
+                <div class="project-image-placeholder"></div>
+                <div class="project-details">
+                    <div class="project-top-info">
+                        <div>
+                            <p class="project-type">Type of Project</p>
+                            <h3 class="project-title">Name of community project</h3>
+                        </div>
+                        <div class="location-tag">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            Miles away
+                        </div>
+                    </div>
+                    
+                    <div class="progress-container">
+                        <div class="progress-labels">
+                            <span>Goal Progress</span>
+                            <span># / ##</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <!--Rest of code-->
-    <h1 style="color: #F1620E;">Welcome to TerraShield</h1>
-    <br>
-    <br>
-    <h2 style="color: #F1620E;">Our Motto:</h2>
-    <p>Make the world a more sustanible and easier place using technology</p>
-    
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
 </body>
+</html>
