@@ -1,19 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. Initialize Leaflet Map centered globally
+    const mapContainer = document.getElementById('climate-map');
+    if (!mapContainer) return;
+
+    // Ensure container has explicit height in case CSS hasn't painted yet
+    mapContainer.style.height = '450px';
+    mapContainer.style.width = '100%';
+
+    // Initialize map centered globally
     const map = L.map('climate-map', {
         zoomControl: true,
         fadeAnimation: true
     }).setView([20, 0], 3);
 
-    // Add standard OpenStreetMap tiles with safe error handling
-    const baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    // Standard OpenStreetMap Tile Layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         minZoom: 1,
         attribution: '&copy; OpenStreetMap contributors',
-        errorTileUrl: '' 
+        errorTileUrl: ''
     }).addTo(map);
 
-    // Fetch live RainViewer radar overlay timestamp dynamically
+    // Fetch active radar overlay timestamp dynamically
     fetch('https://api.rainviewer.com/public/weather-maps.json')
         .then(res => res.json())
         .then(data => {
@@ -34,27 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
             console.warn("Radar tile layer skipped:", err);
         });
 
-    // 2. Interactive Category Filter Logic for Community Projects
-    const filterPills = document.querySelectorAll('.filter-pills .pill');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    filterPills.forEach(pill => {
-        pill.addEventListener('click', () => {
-            // Remove active class from all pills
-            filterPills.forEach(p => p.classList.remove('active'));
-            // Add active class to clicked pill
-            pill.classList.add('active');
-
-            const selectedFilter = pill.getAttribute('data-filter');
-
-            projectCards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                if (selectedFilter === 'all' || category === selectedFilter) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-    });
+    // CRITICAL: Force Leaflet to recalculate size after DOM paint to remove white boxes
+    setTimeout(() => {
+        map.invalidateSize();
+    }, 200);
 });
