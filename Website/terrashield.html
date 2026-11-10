@@ -3,129 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TerraShield</title>
+    <title>TerraShield - Climate & Community Dashboard</title>
     <link rel="icon" type="image/png" href="images/Terra Shield.png">
     
-    <!-- External & Custom CSS -->
+    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="container">
-        <!-- Main Header & Motto -->
-        <h1 style="color: #F1620E;">Welcome to TerraShield</h1>
-        <h2 style="color: #F1620E;">Our Motto:</h2>
-        <p>Make the world a more sustainable and easier place using technology</p>
+    <div class="app-container">
+        <!-- Hero Header -->
+        <header class="hero-header">
+            <h1 class="brand-title">TerraShield</h1>
+            <div class="motto-box">
+                <h2>Our Motto:</h2>
+                <p>Make the world a more sustainable and easier place using technology</p>
+            </div>
+        </header>
         
-        <!-- Dashboard Grid -->
-        <div class="dashboard-grid" style="color: black;">
-            <!-- Air Quality Box -->
-            <div class="card">
+        <!-- Environmental Metrics Dashboard Grid -->
+        <section class="dashboard-grid" aria-label="Environmental Metrics">
+            <div class="card metric-card">
                 <div class="header-row">
-                    <h2 class="title">Air Quality (AQI)</h2>
+                    <h3 class="title">Air Quality (AQI)</h3>
                     <span class="status-badge-good">Good</span>
                 </div>
                 <div class="value">100/100</div>
             </div>
 
-            <!-- Tree Cover Box -->
-            <div class="card">
+            <div class="card metric-card">
                 <div class="header-row">
-                    <h2 class="title">Tree Cover</h2>
+                    <h3 class="title">Tree Cover</h3>
                     <span class="status-badge-bad">Bad</span>
                 </div>
                 <div class="value">100/100</div>
             </div>
 
-            <!-- Heat Index Box -->
-            <div class="card">
+            <div class="card metric-card">
                 <div class="header-row">
-                    <h2 class="title">Heat Index</h2>
+                    <h3 class="title">Heat Index</h3>
                     <span class="status-badge-bad">Bad</span>
                 </div>
                 <div class="value">100/100</div>
             </div>
 
-            <!-- Local Water Quality Box -->
-            <div class="card">
+            <div class="card metric-card">
                 <div class="header-row">
-                    <h2 class="title">Local Water Quality</h2>
+                    <h3 class="title">Local Water Quality</h3>
                     <span class="status-badge-good">Good</span>
                 </div>
                 <div class="value">50/100</div>
             </div>
-        </div>
+        </section>
 
-        <!-- Global Climate Map Section -->
+        <!-- Global Climate Tracking Map Section -->
         <section class="map-section">
-            <h2 class="map-header">Global Climate Tracking Map</h2>
+            <h2 class="section-heading">Global Climate Tracking Map</h2>
             <div id="climate-map"></div>
         </section>
 
         <!-- Community Projects Section -->
-        <section class="projects-wrapper">
+        <section class="projects-section">
             <div class="projects-header-card">
                 <h2>Community Projects</h2>
                 <p>Join Local community projects around you</p>
                 
                 <div class="filter-pills">
-                    <button class="pill active">All Projects</button>
-                    <button class="pill">⚡ Energy</button>
-                    <button class="pill">💧 Water</button>
-                    <button class="pill">🌳 Trees</button>
+                    <button class="pill active" data-filter="all">All Projects</button>
+                    <button class="pill" data-filter="energy">⚡ Energy</button>
+                    <button class="pill" data-filter="water">💧 Water</button>
+                    <button class="pill" data-filter="trees">🌳 Trees</button>
                 </div>
             </div>
 
-            <!-- Project Item 1 -->
-            <div class="project-card">
+            <!-- Project Card 1 -->
+            <div class="project-card" data-category="trees">
                 <div class="project-image-placeholder"></div>
                 <div class="project-details">
                     <div class="project-top-info">
                         <div>
-                            <p class="project-type">Type of Project</p>
-                            <h3 class="project-title">Name of community project</h3>
+                            <span class="project-type">Tree Cover Initiative</span>
+                            <h3 class="project-title">Urban Reforestation Drive</h3>
                         </div>
                         <div class="location-tag">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            Miles away
+                            2.4 miles away
                         </div>
                     </div>
                     
                     <div class="progress-container">
                         <div class="progress-labels">
                             <span>Goal Progress</span>
-                            <span># / ##</span>
+                            <span>340 / 500 trees</span>
                         </div>
                         <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" style="width: 45%;"></div>
+                            <div class="progress-bar-fill" style="width: 68%;"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Project Item 2 -->
-            <div class="project-card">
-                <div class="project-image-placeholder"></div>
+            <!-- Project Card 2 -->
+            <div class="project-card" data-category="energy">
+                <div class="project-image-placeholder energy-gradient"></div>
                 <div class="project-details">
                     <div class="project-top-info">
                         <div>
-                            <p class="project-type">Type of Project</p>
-                            <h3 class="project-title">Name of community project</h3>
+                            <span class="project-type">Clean Energy</span>
+                            <h3 class="project-title">Community Solar Array Setup</h3>
                         </div>
                         <div class="location-tag">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                            Miles away
+                            5.1 miles away
                         </div>
                     </div>
                     
                     <div class="progress-container">
                         <div class="progress-labels">
                             <span>Goal Progress</span>
-                            <span># / ##</span>
+                            <span>42 / 50 panels</span>
                         </div>
                         <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" style="width: 70%;"></div>
+                            <div class="progress-bar-fill" style="width: 84%;"></div>
                         </div>
                     </div>
                 </div>
@@ -133,10 +135,10 @@
         </section>
     </div>
 
-    <!-- Leaflet JS -->
+    <!-- Leaflet JS CDN -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-
-    <!-- Custom Script -->
+    
+    <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize map centered globally
+    // 1. Initialize Leaflet Map centered globally
     const map = L.map('climate-map', {
         zoomControl: true,
         fadeAnimation: true
     }).setView([20, 0], 3);
 
-    // Standard OpenStreetMap Tile Layer configured with proper attribution and error handling
+    // Add standard OpenStreetMap tiles with safe error handling
     const baseLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         minZoom: 1,
         attribution: '&copy; OpenStreetMap contributors',
-        errorTileUrl: '' // Prevents broken tile looping if a connection drops
+        errorTileUrl: '' 
     }).addTo(map);
 
-    // Fetch active radar overlay timestamp dynamically
+    // Fetch live RainViewer radar overlay timestamp dynamically
     fetch('https://api.rainviewer.com/public/weather-maps.json')
         .then(res => res.json())
         .then(data => {
@@ -33,4 +33,28 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(err => {
             console.warn("Radar tile layer skipped:", err);
         });
+
+    // 2. Interactive Category Filter Logic for Community Projects
+    const filterPills = document.querySelectorAll('.filter-pills .pill');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            // Remove active class from all pills
+            filterPills.forEach(p => p.classList.remove('active'));
+            // Add active class to clicked pill
+            pill.classList.add('active');
+
+            const selectedFilter = pill.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (selectedFilter === 'all' || category === selectedFilter) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
 });
