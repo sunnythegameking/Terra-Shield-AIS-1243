@@ -262,3 +262,17 @@ body {
     background-color: #2e6930;
     border-radius: 4px;
 }
+/* Leaflet Container Fixes */
+#climate-map {
+    height: 450px !important;
+    width: 100% !important;
+    border-radius: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+}
