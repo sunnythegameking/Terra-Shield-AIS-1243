@@ -10,38 +10,58 @@
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     margin: 0;
-    padding: 24px;
+    padding: 0;
     background-color: var(--bg-color);
     color: var(--text-main);
 }
 
-.app-container {
-    max-width: 1100px;
-    margin: 0 auto;
+/* Top Taskbar Styling */
+.top-taskbar {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background-color: #ffffff;
+    padding: 14px 28px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Hero Header */
-.hero-header {
-    margin-bottom: 30px;
+.taskbar-logo {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+}
+
+.taskbar-info {
+    display: flex;
+    flex-direction: column;
 }
 
 .brand-title {
     color: var(--primary-color);
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     font-weight: 800;
-    margin-bottom: 8px;
-}
-
-.motto-box h2 {
-    color: var(--primary-color);
-    font-size: 1.25rem;
-    margin: 0 0 4px 0;
-}
-
-.motto-box p {
-    font-size: 1.05rem;
-    color: #555;
     margin: 0;
+    line-height: 1.1;
+}
+
+.motto-text {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 4px 0 0 0;
+}
+
+.motto-text strong {
+    color: var(--primary-color);
+}
+
+/* App Container for Dashboard Elements */
+.app-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
 }
 
 /* Dashboard Metrics Grid */
@@ -115,18 +135,20 @@ body {
 }
 
 #climate-map {
-    height: 450px;
-    width: 100%;
+    height: 450px !important;
+    width: 100% !important;
     border-radius: 16px;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
     z-index: 1;
 }
 
-/* Community Projects Section */
-.projects-wrapper {
-    margin-top: 40px;
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
 }
 
+/* Community Projects Section */
 .projects-header-card {
     background-color: var(--teal-container);
     color: #fff;
@@ -261,18 +283,4 @@ body {
     height: 100%;
     background-color: #2e6930;
     border-radius: 4px;
-}
-/* Leaflet Container Fixes */
-#climate-map {
-    height: 450px !important;
-    width: 100% !important;
-    border-radius: 16px;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-}
-
-.leaflet-container {
-    width: 100%;
-    height: 100%;
-    border-radius: 16px;
 }

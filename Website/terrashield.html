@@ -14,15 +14,17 @@
 </head>
 <body>
 
-    <div class="app-container">
-        <!-- Hero Header -->
-        <header class="hero-header">
+    <!-- Top Taskbar -->
+    <header class="top-taskbar">
+        <img src="images/Terra Shield.png" alt="TerraShield Logo" class="taskbar-logo">
+        <div class="taskbar-info">
             <h1 class="brand-title">TerraShield</h1>
-            <div class="motto-box">
-                <h2>Our Motto:</h2>
-                <p>Make the world a more sustainable and easier place using technology</p>
-            </div>
-        </header>
+            <p class="motto-text">We help make the world a better place by inpowering you to help the world become a better place</p>
+        </div>
+    </header>
+
+    <div class="app-container">
+    <!-- Dashboard Grid & rest of your code goes here -->
         
         <!-- Environmental Metrics Dashboard Grid -->
         <section class="dashboard-grid" aria-label="Environmental Metrics">
@@ -32,7 +34,10 @@
                     <span class="status-badge-good">Good</span>
                 </div>
                 <div class="value">
-                    100/100
+                    20/500
+                </div>
+                <div>
+                    A 0–500 scale that measures air pollution levels and potential health risks.
                 </div>
             </div>
 
@@ -42,17 +47,23 @@
                     <span class="status-badge-bad">Bad</span>
                 </div>
                 <div class="value">
-                    100/100
+                    20/100
+                </div>
+                <div>
+                    A measurement of how much an area is shaded by trees.
                 </div>
             </div>
 
             <div class="card metric-card">
                 <div class="header-row">
                     <h3 class="title">Heat Index</h3>
-                    <span class="status-badge-bad">Bad</span>
+                    <span class="status-badge-good">Good</span>
                 </div>
                 <div class="value">
-                    100/100
+                    85°F
+                </div>
+                <div>
+                    A "feels-like" temperature that combines air heat and humidity.
                 </div>
             </div>
 
@@ -62,7 +73,10 @@
                     <span class="status-badge-good">Good</span>
                 </div>
                 <div class="value">
-                    50/100
+                    90/100
+                </div>
+                <div>
+                    A score or set of benchmarks that shows whether local water is clean and safe.
                 </div>
             </div>
         </section>
